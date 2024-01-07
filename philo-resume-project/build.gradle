@@ -11,7 +11,8 @@ group = 'io.philo'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '21'
+	sourceCompatibility = javaVersion
+	targetCompatibility = javaVersion
 }
 
 repositories {
@@ -23,10 +24,12 @@ ext {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
-	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
@@ -39,7 +42,7 @@ dependencyManagement {
 tasks.withType(KotlinCompile) {
 	kotlinOptions {
 		freeCompilerArgs += '-Xjsr305=strict'
-		jvmTarget = '21'
+		jvmTarget = javaVersion
 	}
 }
 
