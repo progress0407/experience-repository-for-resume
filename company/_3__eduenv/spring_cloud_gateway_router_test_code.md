@@ -1,16 +1,25 @@
 # Spring Cloud Gateway 라우터 코드 리펙터링 (TDD)
 
+> 모든 코드는 [이곳](https://github.com/progress0407/experience-repository-for-resume/blob/main/philo-resume-project/gateway-router-test/src/test/kotlin/io/philo/gateway/GatewayAppTestByDsl.kt)에 있습니다.
+
 ## 문제점
 
 기존의 yaml 파일의 경우 3~6줄 가량의 라우팅 정보(API)가 약 200개, 총 800 줄 정도의 코드가 존재
 
-새로 추가한 API가 라우팅되지 않을 때 어떤 부분에서 문제가 있는 지 빠르게 탐색하기 어려움
+새로 추가한 API가 라우팅되지 않을 때 어떤 부분에서 문제가 있는 지 빠르게 인지하기 어려움
 
 또한 코드량 자체가 길기에 한눈에 API 리스트를 파악하기 번거로움
 
+## 작업 과정
+
+방어(테스트) 코드를 작성한 이후에 기존 코드를 kotlin으로 마이그레이션하였음
+
+추후 테스트 코드를 Kotlin-DSL 기반으로 변경
 
 
-## 방어 코드
+## 테스트 코드
+
+### 리펙터링 전
 
 ```kotlin
 fun `route 목록을 검증한다`() {
@@ -42,7 +51,9 @@ fun `route 목록을 검증한다`() {
 
 ```
 
-## 기존의 코드 (YAML)
+## 프로덕션 코드
+
+### 기존 코드 (YAML)
 
 ```yaml
 spring:
@@ -70,7 +81,7 @@ spring:
             - RemoveRequestHeader=Cookie
 ```
 
-## 변경 이후의 라우터 코드
+### 리펙터링 이후의 Kotlin Router 코드
 
 ```kotlin
 @Configuration
