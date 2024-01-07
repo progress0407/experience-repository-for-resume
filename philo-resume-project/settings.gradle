@@ -1,1 +1,3 @@
 rootProject.name = 'resume'
+include 'gateway-router-test'
+
