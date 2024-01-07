@@ -1,3 +1,4 @@
 rootProject.name = 'resume'
 include 'gateway-router-test'
+include 'subscription-calc'
 
