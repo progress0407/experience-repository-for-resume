@@ -19,9 +19,9 @@ import kotlin.properties.Delegates
 import kotlin.reflect.KClass
 
 @SpringBootTest
-class GatewayAppTest2 {
+class GatewayAppTestByDsl {
 
-    val logger = logger<GatewayAppTest2>()
+    val logger = logger<GatewayAppTestByDsl>()
 
     @Autowired
     lateinit var routeLocator: RouteLocator
