@@ -1,6 +1,7 @@
 # Spring Cloud Gateway 라우터 코드 리펙터링 (TDD)
 
-> 모든 코드는 [이곳](https://github.com/progress0407/experience-repository-for-resume/blob/main/philo-resume-project/gateway-router-test/src/test/kotlin/io/philo/gateway/GatewayAppTestByDsl.kt)에 있습니다.
+> 구현한 코드의 경우 실제 내용과 다르게 변형하였습니다.
+> 예시 코드는 [이곳](https://github.com/progress0407/experience-repository-for-resume/blob/main/philo-resume-project/gateway-router-test/src/test/kotlin/io/philo/gateway/GatewayAppTestByDsl.kt)에 있습니다.
 
 ## 문제점
 
@@ -12,9 +13,13 @@
 
 ## 작업 과정
 
-방어(테스트) 코드를 작성한 이후에 기존 코드를 kotlin으로 마이그레이션하였음
+1. 방어(테스트) 코드를 작성
 
-추후 테스트 코드를 Kotlin-DSL 기반으로 변경
+2. 기존 코드(YAML)을 kotlin으로 마이그레이션
+
+3. 테스트 코드를 통해 Green인지 확인
+
+4. 추후 테스트 코드를 Kotlin-DSL으로 변경
 
 
 ## 테스트 코드
